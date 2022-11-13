@@ -20,9 +20,9 @@ try {
     $result_hp = $pdo_hp->query($sql_hp);
 
     if ($result_mac->rowCount() == $result_hp->rowCount()) {
-        echo "DB Sync";
+        // echo "DB Sync";
     } else {
-        echo "DB not Sync";
+        // echo "DB not Sync";
 
         if ($result_mac->rowCount() > $result_hp->rowCount()) {
             echo "Db Sync is started from MacBook to HP";
@@ -66,7 +66,7 @@ try {
                 $insert_sql->execute();
             }
         } else {
-            echo "Db Sync is started from HP to Macbook";
+            // echo "Db Sync is started from HP to Macbook";
 
             $sql_mac = "SELECT max(rec_id) as max_rec_mac from tbl_cashflow";
             $sql_hp = "SELECT max(rec_id) as max_rec_hp from tbl_cashflow";
@@ -82,7 +82,7 @@ try {
 
             // echo "Records are not to be sync from " . $max_rec_hp . " to record no " . $max_rec_mac;
 
-            $sql_get_record = "SELECT * FROM tbl_cashflow WHERE rec_id >" . $max_rec_hp;
+            $sql_get_record = "SELECT * FROM tbl_cashflow WHERE rec_id >" . $max_rec_mac;
 
             // echo $sql_get_record;
 
@@ -101,7 +101,7 @@ try {
 
                 $sql_for_insert = "INSERT INTO tbl_cashflow(cash_flow_type, cash_flow_amt, cash_flow_cat, cash_flow_date,cash_flow_remarks) VALUES ('{$tranCat}','{$tranAmt}','{$tranPart}','{$tranDate}','{$tranRemark}')";
 
-                echo $sql_for_insert . "<br>";
+                // echo $sql_for_insert . "<br>";
 
                 $insert_sql = $pdo_mac->prepare($sql_for_insert);
 
