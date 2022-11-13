@@ -41,7 +41,10 @@ try {
             // echo "Records are not to be sync from " . $max_rec_hp . " to record no " . $max_rec_mac;
 
             $sql_get_record = "SELECT * FROM tbl_cashflow WEHRE rec_id >" . $max_rec_hp;
+
             $result_for_copy = $pdo_mac->query($sql_get_record);
+
+            echo $result_for_copy->rowCount();
 
             while ($row_for_copy = $result_for_copy->fetch()) {
 
