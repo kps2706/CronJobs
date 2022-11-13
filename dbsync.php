@@ -20,9 +20,9 @@ try {
     $result_hp = $pdo_hp->query($sql_hp);
 
     if ($result_mac->rowCount() == $result_hp->rowCount()) {
-        // echo "DB Sync";
+        echo "DB Sync";
     } else {
-        // echo "DB not Sync";
+        echo "DB not Sync";
 
         if ($result_mac->rowCount() > $result_hp->rowCount()) {
             // echo "Db Sync is started from MacBook to HP";
