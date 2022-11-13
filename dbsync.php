@@ -20,12 +20,12 @@ try {
     $result_hp = $pdo_hp->query($sql_hp);
 
     if ($result_mac->rowCount() == $result_hp->rowCount()) {
-        // echo "DB Sync";
+        echo "DB Sync";
     } else {
-        // echo "DB not Sync";
+        echo "DB not Sync";
 
         if ($result_mac->rowCount() > $result_hp->rowCount()) {
-            // echo "Db Sync is started from MacBook to HP";
+            echo "Db Sync is started from MacBook to HP";
             $sql_mac = "SELECT max(rec_id) as max_rec_mac from tbl_cashflow";
             $sql_hp = "SELECT max(rec_id) as max_rec_hp from tbl_cashflow";
 
@@ -66,7 +66,8 @@ try {
                 $insert_sql->execute();
             }
         } else {
-            // echo "Db Sync is started from HP to Macbook";
+            echo "Db Sync is started from HP to Macbook";
+
             $sql_mac = "SELECT max(rec_id) as max_rec_mac from tbl_cashflow";
             $sql_hp = "SELECT max(rec_id) as max_rec_hp from tbl_cashflow";
 
