@@ -59,9 +59,11 @@ try {
 
                 $sql_for_insert = "INSERT INTO tbl_cashflow(cash_flow_type, cash_flow_amt, cash_flow_cat, cash_flow_date,cash_flow_remarks) VALUES ('{$tranCat}','{$tranAmt}','{$tranPart}','{$tranDate}','{$tranRemark}')";
 
-                echo $sql_for_insert;
+                // echo $sql_for_insert . "<br>";
 
-                echo "<br>";
+                $insert_sql = $pdo_mac->prepare($sql_for_insert);
+
+                $insert_sql->execute();
             }
 
 
