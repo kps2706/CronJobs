@@ -61,7 +61,7 @@ try {
 
                 // echo $sql_for_insert . "<br>";
 
-                $insert_sql = $pdo_mac->prepare($sql_for_insert);
+                $insert_sql = $pdo_hp->prepare($sql_for_insert);
 
                 $insert_sql->execute();
             }
