@@ -42,6 +42,8 @@ try {
 
             $sql_get_record = "SELECT * FROM tbl_cashflow WEHRE rec_id >" . $max_rec_hp;
 
+            echo $sql_get_record;
+
             $result_for_copy = $pdo_mac->query($sql_get_record);
 
             echo $result_for_copy->rowCount();
