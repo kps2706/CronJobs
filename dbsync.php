@@ -35,9 +35,7 @@ try {
             $row_mac = $result_mac->fetch();
             $row_hp = $result_hp->fetch();
 
-            var_dump($row_mac);
-
-            echo "Records are not to be sync from " . $row_hp['max_rec_hp'] . " to record no " . $row_mac['max_rec_mac'];
+            echo "Records are not to be sync from " . ($row_hp['max_rec_hp'] == NULL) ? ' 0 ' : $row_hp['max_rec_hp'] . " to record no " . $row_mac['max_rec_mac'];
 
 
 
