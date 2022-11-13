@@ -26,16 +26,18 @@ try {
 
         if ($result_mac->rowCount() > $result_hp->rowCount()) {
             // echo "Db Sync is started from MacBook to HP";
-            $sql_mac = "SELECT max(rec_id) from tbl_cashflow";
-            $sql_hp = "SELECT max(rec_id) from tbl_cashflow";
+            $sql_mac = "SELECT max(rec_id) as max_rec_mac from tbl_cashflow";
+            $sql_hp = "SELECT max(rec_id) as max_rec_hp from tbl_cashflow";
 
-            $result_mac->$pdo_mac->query($sql_mac);
-            $result_hp->$pdo_hp->query($sql_hp);
+            $result_mac = $pdo_mac->query($sql_mac);
+            $result_hp = $pdo_hp->query($sql_hp);
 
             $row_mac = $result_mac->fetch();
             $row_hp = $result_hp->fetch();
 
-            echo "Records are not to be sync from " . $row_hp['rec_id'] . " to record no " . $row_mac['rec_id'];
+            var_dump($row_mac);
+
+            echo "Records are not to be sync from " . $row_hp['max_rec_hp'] . " to record no " . $row_mac['max_rec_mac'];
 
 
 
