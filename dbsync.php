@@ -42,7 +42,7 @@ try {
 
             $sql_get_record = "SELECT * FROM tbl_cashflow WHERE rec_id >" . $max_rec_hp;
 
-            echo $sql_get_record;
+            // echo $sql_get_record;
 
             $result_for_copy = $pdo_mac->query($sql_get_record);
 
@@ -50,7 +50,7 @@ try {
 
             while ($row_for_copy = $result_for_copy->fetch()) {
 
-                var_dump($row_for_copy);
+                var_dump($row_for_copy['rec_id']);
                 echo "<br>";
             }
 
