@@ -46,11 +46,21 @@ try {
 
             $result_for_copy = $pdo_mac->query($sql_get_record);
 
-            echo $result_for_copy->rowCount();
+            // echo $result_for_copy->rowCount();
 
             while ($row_for_copy = $result_for_copy->fetch()) {
 
-                echo $row_for_copy['rec_id'];
+                // echo $row_for_copy['rec_id'];
+                $tranCat = $row_for_copy['cash_flow_type'];
+                $tranAmt = $row_for_copy['cash_flow_amt'];
+                $tranPart = $row_for_copy['cash_flow_cat'];
+                $tranDate = $row_for_copy['cash_flow_date'];
+                $tranRemark = $row_for_copy['cash_flow_remarks'];
+
+                $sql_for_insert = "INSERT INTO tbl_cashflow(cash_flow_type, cash_flow_amt, cash_flow_cat, cash_flow_date,cash_flow_remarks) VALUES ('{$tranCat}','{$tranAmt}','{$tranPart}','{$tranDate}','{$tranRemark}')";
+
+                echo $sql_for_insert;
+
                 echo "<br>";
             }
 
