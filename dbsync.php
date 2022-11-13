@@ -40,7 +40,7 @@ try {
 
             // echo "Records are not to be sync from " . $max_rec_hp . " to record no " . $max_rec_mac;
 
-            $sql_get_record = "SELECT * FROM tbl_cashflow WEHRE rec_id >" . $max_rec_hp;
+            $sql_get_record = "SELECT * FROM tbl_cashflow WHERE rec_id >" . $max_rec_hp;
 
             echo $sql_get_record;
 
