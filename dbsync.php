@@ -50,7 +50,7 @@ try {
 
             while ($row_for_copy = $result_for_copy->fetch()) {
 
-                var_dump($row_for_copy['rec_id']);
+                echo $row_for_copy['rec_id'];
                 echo "<br>";
             }
 
