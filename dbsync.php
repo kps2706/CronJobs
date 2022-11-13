@@ -26,6 +26,22 @@ try {
 
         if ($result_mac->rowCount() > $result_hp->rowCount()) {
             // echo "Db Sync is started from MacBook to HP";
+            $sql_mac = "SELECT max(rec_id) from tbl_cashflow";
+            $sql_hp = "SELECT max(rec_id) from tbl_cashflow";
+
+            $result_mac->$pdo_mac->query($sql_mac);
+            $result_hp->$pdo_hp->query($sql_hp);
+
+            $row_mac = $result_mac->fetch();
+            $row_hp = $result_hp->fetch();
+
+            echo "Records are not to be sync from " . $row_hp['rec_id'] . " to record no " . $row_mac['rec_id'];
+
+
+
+            // while ($row_mac = $result_mac->fetch()) {
+            //     $revenue[] = $row["datapoint"];
+            // }
         } else {
             // echo "Db Sync is started from HP to Macbook";
         }
